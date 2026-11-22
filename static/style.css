@@ -78,7 +78,7 @@ nav {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('photos/data/WhatsApp Image 2026-11-21 at 4.46.24 PM.jpeg') no-repeat center/cover;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -209,19 +209,26 @@ nav {
 
 .member-image {
     border-radius: 10px;
-    overflow: hidden;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .member-image img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.3s;
+    display: none;
 }
 
 .member-image:hover img {
     transform: scale(1.05);
+}
+
+.member-info {
+    text-align: center;
+    padding: 20px;
 }
 
 .member-info h3 {
@@ -279,21 +286,40 @@ nav {
 
 .photo-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+    max-width: 1200px;
+}
+
+.photo-item {
+    margin: 0 auto;
 }
 
 .photo-item img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s;
+    display: block;
 }
 
 .photo-item:hover img {
     transform: scale(1.05);
+}
+
+/* Ensure grid shows all photos nicely - 4 photos per row for 11 photos */
+@media (min-width: 1000px) {
+    .photo-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 740px) and (max-width: 999px) {
+    .photo-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* Footer */
